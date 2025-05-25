@@ -56,7 +56,7 @@ export default function App() {
             <div className="flex flex-row items-start gap-8">
               <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src="../public/mehul.jpeg" 
+                  src="/mehul.jpg" 
                   alt="Profile" 
                   className="w-full h-full object-cover"
                 />
