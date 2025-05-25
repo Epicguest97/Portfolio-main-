@@ -58,7 +58,7 @@ export default function App() {
                   }
                 </button>
                 <a
-                  href="https://www.buymeacoffee.com/yourusername"
+                  href="https://buymeacoffee.com/mehulkaushik"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-neutral-900/80 hover:bg-neutral-800/80 transition-colors"
