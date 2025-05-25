@@ -3,6 +3,9 @@ import Points from "./Components/Points";
 import { FloatingDock } from "./Components/ui/floating-dock";
 import { UserIcon, Code2Icon, GithubIcon, LinkedinIcon, FileTextIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
+import Experience from "./Components/Experience";
+import Projects from "./Components/Projects";
+import Technologies from "./Components/Technologies";
 
 function MyDock() {
   const items = [
@@ -31,12 +34,12 @@ export default function App() {
   };
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-y-auto dark-bg">
       <ParticlesBackground />
       <div className="fixed inset-0 flex flex-col items-center">
         <MyDock />
         <div className="h-full w-full flex items-center justify-center text-white">
-          <div className="w-[46.66%] h-full flex flex-col justify-center bg-transparent">
+          <div className="w-[46.66%] h-full overflow-y-auto flex flex-col py-20 bg-transparent scrollbar-hide">
             {/* Header controls */}
             <div className="flex justify-between items-center mb-6">
               <Points />
@@ -53,17 +56,17 @@ export default function App() {
             </div>
             
             {/* Profile picture and intro section */}
-            <div className="flex flex-row items-start gap-8">
-              <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+            <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src="/mehul.jpg" 
+                  src="../public/mehul.jpeg" 
                   alt="Profile" 
                   className="w-full h-full object-cover"
                 />
               </div>
               
               <div className="flex flex-col gap-3">
-                <h1 className="text-3xl font-bold">Hi, I am Mehul Kaushik,</h1>
+                <h1 className="text-2xl md:text-3xl font-bold">Hi, I am Mehul Kaushik,</h1>
                 <p className="text-base text-white/80">
                   I build full-stack web applications and experiment with Machine Learning to create smarter, more efficient solutions.
                 </p>
@@ -71,22 +74,17 @@ export default function App() {
               </div>
             </div>
             
-            {/* Current position section */}
-            <div className="mt-12">
-              <h2 className="text-sm uppercase tracking-wider text-white/60 mb-2">CURRENTLY</h2>
-              <div>
-                <h3 className="text-2xl font-bold">Frontend Developer</h3>
-                <p className="text-white/80">2024 - PRESENT</p>
-                <p className="mt-3 text-white/80">
-                  React and Next.js application development focused on accessibility, security, and digital innovation.
-                </p>
-                
-                {/* Tech stack icons */}
-                <div className="flex gap-4 mt-4">
-                  {/* Add your tech stack icons here */}
-                </div>
-              </div>
-            </div>
+            {/* Experience Component */}
+            <Experience />
+            
+            {/* Projects Component */}
+            <Projects />
+            
+            {/* Technologies Component */}
+            <Technologies />
+            
+            {/* Add some bottom padding for scrolling */}
+            <div className="pb-10"></div>
           </div>
         </div>
       </div>
