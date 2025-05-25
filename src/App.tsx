@@ -38,7 +38,6 @@ export default function App() {
   const [hasAwardedPoints, setHasAwardedPoints] = useState(false);
   const [hasAwardedDarkMode, setHasAwardedDarkMode] = useState(false);
   const [hasAwardedSocials, setHasAwardedSocials] = useState(false);
-  const [hasAwardedSt, setHasAwardedSt] = useState(false);
   const holdTimer = useRef<NodeJS.Timeout | null>(null);
 
   const handlePressStart = () => {
@@ -65,6 +64,7 @@ export default function App() {
   };
 
   const toggleDarkMode = () => {
+    // Award points only once for clicking the dark mode button
     if (!hasAwardedDarkMode) {
       setPoints(prev => Math.min(prev + 20, 100));
       setHasAwardedDarkMode(true);
@@ -76,23 +76,13 @@ export default function App() {
   };
 
   const toggleSocials = () => {
+    // Award points only once for clicking the socials link button
     if (!hasAwardedSocials) {
       setPoints(prev => Math.min(prev + 20, 100));
       setHasAwardedSocials(true);
       new Audio('/ting.mp3').play();
     }
     setNotificationMessage("<Easter Egg #4> Follow me on Insta");
-    setShowNotification(true);
-    setTimeout(() => setShowNotification(false), 3000);
-  };
-
-  const toggleStMicroelectronics = () => {
-    if (!hasAwardedSt) {
-      setPoints(prev => Math.min(prev + 20, 100));
-      setHasAwardedSt(true);
-      new Audio('/ting.mp3').play();
-    }
-    setNotificationMessage("<Easter Egg #3> Now you know my dad got me this");
     setShowNotification(true);
     setTimeout(() => setShowNotification(false), 3000);
   };
@@ -172,7 +162,7 @@ export default function App() {
             </div>
             
             {/* Experience Component */}
-            <Experience onStClick={toggleStMicroelectronics} />
+            <Experience />
             
             {/* Projects Component */}
             <div id="projects">
