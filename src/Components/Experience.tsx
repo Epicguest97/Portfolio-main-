@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronLeftIcon } from "lucide-react";
-import { SiReact, SiTypescript, SiNodedotjs, SiNextdotjs, SiWordpress, SiGit, SiLaravel } from "react-icons/si";
+import { SiReact, SiTypescript, SiNodedotjs, SiPytorch, SiWordpress, SiGit, SiLaravel,SiPython,SiStmicroelectronics } from "react-icons/si";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function Experience() {
@@ -11,21 +11,21 @@ export default function Experience() {
       <h2 className="text-sm uppercase tracking-wider text-white/60 mb-2">CURRENTLY</h2>
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-2xl font-bold">Frontend Developer</h3>
-          <p className="text-white/80">2024 - PRESENT</p>
+          <h3 className="text-2xl font-bold">Project Intern</h3>
+          <p className="text-white/80">May 2025 - Present</p>
           <p className="mt-3 text-white/80">
-            React and Next.js application development focused on accessibility, security, and digital innovation.
+            As an intern I contributed to the development of Python-based automation tools focused on accelerating tasks related to Artificial Intelligence (AI) workflows.
           </p>
           
           <div className="flex gap-2 mt-4">
-            <SiReact className="h-5 w-5" />
-            <SiNextdotjs className="h-5 w-5" />
-            <SiTypescript className="h-5 w-5" />
+            <SiPython className="h-5 w-5" />
+            <SiStmicroelectronics className="h-5 w-5" />
+            <SiPytorch className="h-5 w-5" />
           </div>
         </div>
         <div className="flex flex-col items-end">
-          <span className="bg-emerald-900/80 text-emerald-300 px-2 py-1 rounded text-xs mb-1">Govone</span>
-          <span className="text-xs text-white/60">Remote</span>
+          <span className="bg-emerald-900/80 text-emerald-300 px-2 py-1 rounded text-xs mb-1">StMicroelectronics</span>
+          <span className="text-xs text-white/60">On-site</span>
         </div>
       </div>
       

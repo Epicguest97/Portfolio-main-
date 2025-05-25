@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Search, ChevronDown, X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 
 const projects = [
 	{
-		title: "AcheAlguem",
-		description: "Register and locate missing persons",
-		tags: ["NextJS", "Typescript", "2025"],
+		title: "Inventory Management System",
+		description: "",
+		tags: ["NextJS", "Typescript","Supabase", "2025"],
 		link: "#",
-		image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+		image: "https://instagram.fdel27-7.fna.fbcdn.net/v/t51.2885-15/501425972_17869185744376528_7463031079505808015_n.jpg?stp=dst-jpg_e35_s1080x1080_sh0.08_tt6&_nc_ht=instagram.fdel27-7.fna.fbcdn.net&_nc_cat=104&_nc_oc=Q6cZ2QHbX--nJht_5w2O7MLYjseCw-iM_alkgxIjM8wPdF2c9djm08jMYnuiBn_Vlcqj2VHAR2_RkDOaXI2cAFPwyaMP&_nc_ohc=9S0QNEtc_qoQ7kNvwHyvqeD&_nc_gid=EJV-JnKblAtrufGbM8SEGA&edm=AGenrX8BAAAA&ccb=7-5&oh=00_AfJwjLtpyNlE4HFs5luq3_StBLVK4-zQyHkC2_BBfxGyFg&oe=6838E2C1&_nc_sid=ed990e",
 	},
 	{
 		title: "NASA Dashboard",

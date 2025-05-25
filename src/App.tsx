@@ -74,7 +74,7 @@ export default function App() {
             <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
               <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src="../public/mehul.jpeg" 
+                  src="https://media.licdn.com/dms/image/v2/D4E03AQENq4GdHViyDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731440629073?e=1753920000&v=beta&t=kiB5PUWz2sv4YOEVPTUAdlxLWBgyKFnO3cDrGzc5m7s" 
                   alt="Profile" 
                   className="w-full h-full object-cover"
                 />
