@@ -43,8 +43,7 @@ export default function App() {
       <div className="fixed inset-0 flex flex-col items-center">
         <MyDock />
         <div className="h-full w-full flex items-center justify-center text-white">
-          <div className="w-full md:w-[46.66%] h-full overflow-y-auto flex flex-col py-20 bg-transparent scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
-
+          <div className="w-full md:w-[46.66%] h-full overflow-y-auto flex flex-col py-20 px-4 md:px-0 bg-transparent scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
             <div className="flex justify-between items-center mb-6">
               <Points />
               <div className="flex items-center gap-4">
