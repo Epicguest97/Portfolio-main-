@@ -1,11 +1,14 @@
 import ParticlesBackground from "./Components/ParticlesBackground";
 import Points from "./Components/Points";
 import { FloatingDock } from "./Components/ui/floating-dock";
-import { UserIcon, Code2Icon, GithubIcon, LinkedinIcon, FileTextIcon, MoonIcon, SunIcon } from "lucide-react";
+import { UserIcon, Code2Icon, GithubIcon, LinkedinIcon, FileTextIcon, MoonIcon, SunIcon, CoffeeIcon } from "lucide-react";
 import { useState } from "react";
 import Experience from "./Components/Experience";
 import Projects from "./Components/Projects";
 import Technologies from "./Components/Technologies";
+import { SiLeetcode } from "react-icons/si";
+import LastPlayedSong from "./Components/LastPlayedSong";
+import Socials from "./Components/Socials";
 
 function MyDock() {
   const items = [
@@ -13,6 +16,7 @@ function MyDock() {
     { title: "Projects", icon: <Code2Icon className="text-white" />, href: "/projects" },
     { title: "GitHub", icon: <GithubIcon className="text-white" />, href: "https://github.com/yourusername" },
     { title: "LinkedIn", icon: <LinkedinIcon className="text-white" />, href: "https://linkedin.com/in/yourusername" },
+    { title: "Leetcode", icon: <SiLeetcode className="text-white" />, href: "https://leetcode.com/yourusername" },
     { title: "Resume", icon: <FileTextIcon className="text-white" />, href: "/resume" },
   ];
   
@@ -43,16 +47,27 @@ export default function App() {
             {/* Header controls */}
             <div className="flex justify-between items-center mb-6">
               <Points />
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 rounded-full bg-neutral-900/80 hover:bg-neutral-800/80 transition-colors"
-                aria-label="Toggle dark mode"
-              >
-                {darkMode ? 
-                  <SunIcon className="h-5 w-5 text-yellow-300" /> : 
-                  <MoonIcon className="h-5 w-5 text-blue-300" />
-                }
-              </button>
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={toggleDarkMode}
+                  className="p-2 rounded-full bg-neutral-900/80 hover:bg-neutral-800/80 transition-colors"
+                  aria-label="Toggle dark mode"
+                >
+                  {darkMode ? 
+                    <SunIcon className="h-5 w-5 text-yellow-300" /> : 
+                    <MoonIcon className="h-5 w-5 text-blue-300" />
+                  }
+                </button>
+                <a
+                  href="https://www.buymeacoffee.com/yourusername"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-neutral-900/80 hover:bg-neutral-800/80 transition-colors"
+                  aria-label="Buy me a coffee"
+                >
+                  <CoffeeIcon className="w-5 h-5 text-white" />
+                </a>
+              </div>
             </div>
             
             {/* Profile picture and intro section */}
@@ -82,6 +97,14 @@ export default function App() {
             
             {/* Technologies Component */}
             <Technologies />
+            
+            {/* Last Played Song Section */}
+            <div className="mt-8 px-4">
+              <LastPlayedSong />
+            </div>
+            
+            {/* Socials Section */}
+            <Socials />
             
             {/* Add some bottom padding for scrolling */}
             <div className="pb-10"></div>

@@ -1,4 +1,16 @@
-import { SiNextdotjs, SiHtml5, SiCss3, SiTypescript, SiTailwindcss, SiSupabase, SiReact } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiHtml5,
+  SiCss3,
+  SiTypescript,
+  SiTailwindcss,
+  SiSupabase,
+  SiReact,
+  SiPython,
+  SiTensorflow,
+  SiPytorch,
+  SiJupyter,
+} from "react-icons/si";
 
 const techs = [
   { name: "Next.js", icon: <SiNextdotjs size={28} className="text-white" /> },
@@ -8,6 +20,10 @@ const techs = [
   { name: "TailwindCSS", icon: <SiTailwindcss size={28} className="text-cyan-400" /> },
   { name: "Supabase", icon: <SiSupabase size={28} className="text-green-400" /> },
   { name: "React", icon: <SiReact size={28} className="text-cyan-300" /> },
+  { name: "Python", icon: <SiPython size={28} className="text-yellow-300" /> },
+  { name: "TensorFlow", icon: <SiTensorflow size={28} className="text-orange-400" /> },
+  { name: "PyTorch", icon: <SiPytorch size={28} className="text-red-400" /> },
+  { name: "Jupyter Notebooks", icon: <SiJupyter size={28} className="text-orange-300" /> },
 ];
 
 export default function Technologies() {
