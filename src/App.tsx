@@ -12,12 +12,12 @@ import Socials from "./Components/Socials";
 
 function MyDock() {
   const items = [
-    { title: "Profile", icon: <UserIcon className="text-white" />, href: "/profile" },
-    { title: "Projects", icon: <Code2Icon className="text-white" />, href: "/projects" },
-    { title: "GitHub", icon: <GithubIcon className="text-white" />, href: "https://github.com/yourusername" },
-    { title: "LinkedIn", icon: <LinkedinIcon className="text-white" />, href: "https://linkedin.com/in/yourusername" },
-    { title: "Leetcode", icon: <SiLeetcode className="text-white" />, href: "https://leetcode.com/yourusername" },
-    { title: "Resume", icon: <FileTextIcon className="text-white" />, href: "/resume" },
+    { title: "Profile", icon: <UserIcon className="text-white" />, href: "#profile" }, // updated href
+    { title: "Projects", icon: <Code2Icon className="text-white" />, href: "#projects" },
+    { title: "GitHub", icon: <GithubIcon className="text-white" />, href: "https://github.com/Epicguest97" },
+    { title: "LinkedIn", icon: <LinkedinIcon className="text-white" />, href: "https://www.linkedin.com/in/mehul-kaushik-7b3984337/" },
+    { title: "Leetcode", icon: <SiLeetcode className="text-white" />, href: "https://leetcode.com/u/mkaushik06/" },
+    { title: "Resume", icon: <FileTextIcon className="text-white" />, href: "https://d8it4huxumps7.cloudfront.net/uploads/attachements/user-resumes/68331efb0f74d_Resume__5_.pdf" },
   ];
   
   return (
@@ -43,7 +43,7 @@ export default function App() {
       <div className="fixed inset-0 flex flex-col items-center">
         <MyDock />
         <div className="h-full w-full flex items-center justify-center text-white">
-          <div className="w-[46.66%] h-full overflow-y-auto flex flex-col py-20 bg-transparent scrollbar-hide">
+          <div className="w-[46.66%] h-full overflow-y-auto flex flex-col py-20 bg-transparent scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
             {/* Header controls */}
             <div className="flex justify-between items-center mb-6">
               <Points />
@@ -71,21 +71,23 @@ export default function App() {
             </div>
             
             {/* Profile picture and intro section */}
-            <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0">
-                <img 
-                  src="https://media.licdn.com/dms/image/v2/D4E03AQENq4GdHViyDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731440629073?e=1753920000&v=beta&t=kiB5PUWz2sv4YOEVPTUAdlxLWBgyKFnO3cDrGzc5m7s" 
-                  alt="Profile" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              <div className="flex flex-col gap-3">
-                <h1 className="text-2xl md:text-3xl font-bold">Hi, I am Mehul Kaushik,</h1>
-                <p className="text-base text-white/80">
-                  I build full-stack web applications and experiment with Machine Learning to create smarter, more efficient solutions.
-                </p>
-                <p className="text-white/80">Noida, India</p>
+            <div id="profile">
+              <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0">
+                  <img 
+                    src="https://media.licdn.com/dms/image/v2/D4E03AQENq4GdHViyDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731440629073?e=1753920000&v=beta&t=kiB5PUWz2sv4YOEVPTUAdlxLWBgyKFnO3cDrGzc5m7s" 
+                    alt="Profile" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                <div className="flex flex-col gap-3">
+                  <h1 className="text-2xl md:text-3xl font-bold">Hi, I am Mehul Kaushik,</h1>
+                  <p className="text-base text-white/80">
+                    I build full-stack web applications and experiment with Machine Learning to create smarter, more efficient solutions.
+                  </p>
+                  <p className="text-white/80">Noida, India</p>
+                </div>
               </div>
             </div>
             
@@ -93,7 +95,9 @@ export default function App() {
             <Experience />
             
             {/* Projects Component */}
-            <Projects />
+            <div id="projects">
+              <Projects />
+            </div>
             
             {/* Technologies Component */}
             <Technologies />

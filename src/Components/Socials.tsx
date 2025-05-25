@@ -20,7 +20,7 @@ const Socials: React.FC = () => {
             {open && (
                 <div className="flex items-center gap-4 ml-2">
                     <a
-                        href="https://github.com/yourusername"
+                        href="https://github.com/Epicguest97"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white hover:text-white/80"
@@ -29,7 +29,7 @@ const Socials: React.FC = () => {
                         <GithubIcon className="w-5 h-5" />
                     </a>
                     <a
-                        href="mailto:your@mail.com"
+                        href="mailto:kaushikmehul94@gmail.com?subject=hey%20I%20want%20to%20connect"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white hover:text-white/80"
@@ -38,7 +38,7 @@ const Socials: React.FC = () => {
                         <MailIcon className="w-5 h-5" />
                     </a>
                     <a
-                        href="https://instagram.com/yourusername"
+                        href="https://www.instagram.com/mehulkaushik_/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white hover:text-white/80"
@@ -47,7 +47,7 @@ const Socials: React.FC = () => {
                         <Instagram className="w-5 h-5" />
                     </a>
                     <a
-                        href="https://twitter.com/yourusername"
+                        href="https://x.com/kaushikmehul94"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white hover:text-white/80"

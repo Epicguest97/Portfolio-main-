@@ -7,28 +7,28 @@ const projects = [
 		description: "",
 		tags: ["NextJS", "Typescript","Supabase", "2025"],
 		link: "#",
-		image: "",
+		image: "https://raw.githubusercontent.com/Epicguest97/Portfolio-main-/refs/heads/main/public/database.png",
 	},
 	{
 		title: "Flash Cards",
 		description: "A flash card app built with NextJS and Typescript, designed to help users learn and memorize information effectively.",
 		tags: ["NextJS", "Typescript", "2024"],
 		link: "https://flash-card-murex.vercel.app/",
-		image: "",
+		image: "https://raw.githubusercontent.com/Epicguest97/Portfolio-main-/refs/heads/main/public/flashcards.png",
 	},
 	{
 		title: "Liabrary MIT Revamped",
 		description: "A modernized version of the MIT library website, showcasing a sleek design and improved user experience.",
 		tags: ["NextJS", "Typescript", "2025", "Supabase"],
 		link: "https://library-orpin-two.vercel.app/",
-		image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+		image: "https://raw.githubusercontent.com/Epicguest97/Portfolio-main-/refs/heads/main/public/libarary.png",
 	},
   {
 		title: "Tender Trader",
 		description: "A platform for managing and trading tenders, built with NextJS and Typescript, featuring a user-friendly interface and robust functionality.",
 		tags: ["NextJS", "Typescript", "2025", "Supabase"],
 		link: "https://tendertrader-exchange.vercel.app/",
-		image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+		image: "https://raw.githubusercontent.com/Epicguest97/Portfolio-main-/refs/heads/main/public/trader.png",
 	},
 ];
 

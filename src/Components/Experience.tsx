@@ -68,8 +68,8 @@ export default function Experience() {
               transition={{ delay: 0.1 }}
             >
               <div>
-                <h3 className="text-xl font-bold">Software Developer</h3>
-                <p className="text-white/80">2022 - 2024</p>
+                <h3 className="text-xl font-bold">Software Developer Intern</h3>
+                <p className="text-white/80">2024 - 2025</p>
                 <p className="mt-3 text-white/80">
                   Development of websites and web applications using React, TypeScript, and Next.js, including dashboards and
                   management panels. Systems management with Node.js, version control with Git and AWS, and backend in
@@ -86,8 +86,8 @@ export default function Experience() {
                 </div>
               </div>
               <div className="flex flex-col items-end">
-                <span className="bg-neutral-800 px-2 py-1 rounded text-white/90 text-xs mb-1">Grumft</span>
-                <span className="text-xs text-white/60">Sao Paulo</span>
+                <span className="bg-neutral-800 px-2 py-1 rounded text-white/90 text-xs mb-1">Nuvant</span>
+                <span className="text-xs text-white/60">Remote</span>
               </div>
             </motion.div>
             
@@ -99,11 +99,10 @@ export default function Experience() {
               transition={{ delay: 0.2 }}
             >
               <div>
-                <h3 className="text-xl font-bold">System Analyst</h3>
-                <p className="text-white/80">2019 - 2022</p>
+                <h3 className="text-xl font-bold">Co-Founder & TechLead</h3>
+                <p className="text-white/80">2023 - Present</p>
                 <p className="mt-3 text-white/80">
-                  Development of small to medium applications, such as responsive apps and websites. Responsible for creating
-                  web application prototypes, managing, and automating services.
+                  I led the end-to-end development of websites and web applications using React, TypeScript, and Next.js, building dashboards, admin panels, and user interfaces. I managed backend systems with Node.js and Laravel, maintained version control with Git, and deployed infrastructure on AWS. I also delivered custom WordPress solutions when needed. My role included setting technical direction, overseeing system architecture, and aligning development workflows with business goals.
                 </p>
                 
                 <div className="flex gap-2 mt-4">
@@ -113,8 +112,8 @@ export default function Experience() {
                 </div>
               </div>
               <div className="flex flex-col items-end">
-                <span className="bg-blue-800/80 px-2 py-1 rounded text-white/90 text-xs mb-1">GOIDEA</span>
-                <span className="text-xs text-white/60">Sao Paulo</span>
+                <span className="bg-blue-800/80 px-2 py-1 rounded text-white/90 text-xs mb-1">MoonMovement</span>
+                <span className="text-xs text-white/60">On-site</span>
               </div>
             </motion.div>
           </motion.div>
