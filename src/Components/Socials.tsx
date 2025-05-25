@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GithubIcon, Instagram, MailIcon, Link2Icon, TwitterIcon } from "lucide-react";
 
-const Socials: React.FC = () => {
+const Socials: React.FC<{ onSocialsClick?: () => void }> = ({ onSocialsClick }) => {
     const [open, setOpen] = useState(false);
 
     const toggleSocials = () => {
@@ -25,6 +25,7 @@ const Socials: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-white hover:text-white/80"
                         aria-label="GitHub"
+                        onClick={onSocialsClick}
                     >
                         <GithubIcon className="w-5 h-5" />
                     </a>
@@ -34,6 +35,7 @@ const Socials: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-white hover:text-white/80"
                         aria-label="Mail"
+                        onClick={onSocialsClick}
                     >
                         <MailIcon className="w-5 h-5" />
                     </a>
@@ -43,6 +45,7 @@ const Socials: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-white hover:text-white/80"
                         aria-label="Instagram"
+                        onClick={onSocialsClick}
                     >
                         <Instagram className="w-5 h-5" />
                     </a>
@@ -52,6 +55,7 @@ const Socials: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-white hover:text-white/80"
                         aria-label="Twitter"
+                        onClick={onSocialsClick}
                     >
                         <TwitterIcon className="w-5 h-5" />
                     </a>
