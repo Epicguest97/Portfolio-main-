@@ -17,7 +17,7 @@ const projects = [
 		image: "https://raw.githubusercontent.com/Epicguest97/Portfolio-main-/refs/heads/main/public/flashcards.png",
 	},
 	{
-		title: "Liabrary MIT Revamped",
+		title: "Library MIT Revamped",
 		description: "A modernized version of the MIT library website, showcasing a sleek design and improved user experience.",
 		tags: ["NextJS", "Typescript", "2025", "Supabase"],
 		link: "https://library-orpin-two.vercel.app/",
