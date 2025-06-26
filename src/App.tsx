@@ -18,7 +18,7 @@ function MyDock() {
     { title: "GitHub", icon: <GithubIcon className="text-white" />, href: "https://github.com/Epicguest97" },
     { title: "LinkedIn", icon: <LinkedinIcon className="text-white" />, href: "https://www.linkedin.com/in/mehul-kaushik-7b3984337/" },
     { title: "Leetcode", icon: <SiLeetcode className="text-white" />, href: "https://leetcode.com/u/mkaushik06/" },
-    { title: "Resume", icon: <FileTextIcon className="text-white" />, href: "https://d8it4huxumps7.cloudfront.net/uploads/attachements/user-resumes/68331efb0f74d_Resume__5_.pdf" },
+    { title: "Resume", icon: <FileTextIcon className="text-white" />, href: "https://d8it4huxumps7.cloudfront.net/uploads/attachements/user-resumes/685d83742ae40_Mehul_230905204.pdf" },
   ];
   
   return (
