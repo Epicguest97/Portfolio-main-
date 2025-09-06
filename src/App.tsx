@@ -140,7 +140,7 @@ export default function App() {
                   onTouchEnd={handlePressEnd}
                 >
                   <img 
-                    src="https://media.licdn.com/dms/image/v2/D4E03AQENq4GdHViyDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731440629073?e=1756944000&v=beta&t=ZqdfFgX1z0PEAoOoFsk6CJnrUkIksqb8GGTSnSitmSQ" 
+                    src="https://media.licdn.com/dms/image/v2/D4E03AQENq4GdHViyDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731440629073?e=1759968000&v=beta&t=m0yoPJzuKOy2X_1X34zaPbouKq7sYwFpfFC20uJhK54" 
                     alt="Profile" 
                     className="w-full h-full object-cover"
                   />
