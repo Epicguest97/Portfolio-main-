@@ -140,7 +140,7 @@ export default function App() {
                   onTouchEnd={handlePressEnd}
                 >
                   <img 
-                    src="https://i.ibb.co/qF2V16g3/Whats-App-Image-2026-01-17-at-14-46-20.jpg" 
+                    src="https://i.ibb.co/397jQC1q/IMG-2370.jpg" 
                     alt="Profile" 
                     className="w-full h-full object-cover"
                   />
@@ -154,9 +154,9 @@ export default function App() {
                 <div className="flex flex-col gap-3">
                   <h1 className="text-2xl md:text-3xl font-bold">Hi, I am Mehul Kaushik,</h1>
                   <p className="text-base text-white/80">
-                    I build full-stack web applications and experiment with Machine Learning to create smarter, more efficient solutions.
+                    Passionate about Cybersecurity,Machine Learning, and Competitive Programming.
                   </p>
-                  <p className="text-white/80">Noida, India</p>
+                  <p className="text-white/80">Dankaur, India</p>
                 </div>
               </div>
             </div>

@@ -12,7 +12,7 @@ export default function Experience() {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-2xl font-bold">Project Intern</h3>
-          <p className="text-white/80">May 2025 - Present</p>
+          <p className="text-white/80">May 2025 - July 2025</p>
           <p className="mt-3 text-white/80">
             As an intern I contributed to the development of Python-based automation tools focused on accelerating tasks related to Artificial Intelligence (AI) workflows.
           </p>
@@ -100,7 +100,7 @@ export default function Experience() {
             >
               <div>
                 <h3 className="text-xl font-bold">Co-Founder & TechLead</h3>
-                <p className="text-white/80">2023 - Present</p>
+                <p className="text-white/80">2023 - 2025</p>
                 <p className="mt-3 text-white/80">
                   I led the end-to-end development of websites and web applications using React, TypeScript, and Next.js, building dashboards, admin panels, and user interfaces. I managed backend systems with Node.js and Laravel, maintained version control with Git, and deployed infrastructure on AWS. I also delivered custom WordPress solutions when needed. My role included setting technical direction, overseeing system architecture, and aligning development workflows with business goals.
                 </p>
