@@ -140,7 +140,7 @@ export default function App() {
                   onTouchEnd={handlePressEnd}
                 >
                   <img 
-                    src="https://i.ibb.co/397jQC1q/IMG-2370.jpg" 
+                    src="<https://i.ibb.co/F4HjztgK/me.jpg" alt="me" border="0">" 
                     alt="Profile" 
                     className="w-full h-full object-cover"
                   />
