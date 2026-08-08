@@ -332,10 +332,10 @@ export const dustyProjects: Project[] = [
     image: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?q=80&w=600&auto=format&fit=crop"
   },
   {
-    title: "React ISTE Demo",
-    description: "Quick portal registration interface designed for ISTE chapter event displays.",
+    title: "some iste shit",
+    description: "i dont know",
     tags: ["React", "HTML", "CSS", "2023"],
-    link: "https://github.com/Epicguest97/Demo_ISTE/tree/main/react_ISTE",
+    link: "https://github.com/Epicguest97/Demo_ISTE/tree/main",
     image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop"
   }
 ];
