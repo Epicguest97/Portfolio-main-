@@ -116,6 +116,8 @@ export default function AllProjects({ onBackToHome }: AllProjectsProps) {
 					<img
 						src={project.image}
 						alt={project.title}
+						loading="lazy"
+						decoding="async"
 						className={`w-full h-full object-cover transition-all duration-500 ${
 							isDusty 
 								? "grayscale contrast-110 brightness-75 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100" 
