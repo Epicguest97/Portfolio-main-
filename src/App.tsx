@@ -7,19 +7,36 @@ import Technologies from "./Components/Technologies";
 import LastPlayedSong from "./Components/LastPlayedSong";
 import Socials from "./Components/Socials";
 import { FloatingDock } from "./Components/ui/floating-dock";
-import { UserIcon, Code2Icon, GithubIcon, LinkedinIcon, FileTextIcon, SunIcon, CoffeeIcon } from "lucide-react";
+import { UserIcon, Code2Icon, GithubIcon, LinkedinIcon, FileTextIcon, SunIcon, CoffeeIcon, HomeIcon } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
+import OldDustyProjects from "./Components/OldDustyProjects";
 
 
-function MyDock() {
-  const items = [
-    { title: "Profile", icon: <UserIcon className="text-white" />, href: "#profile" },
-    { title: "Projects", icon: <Code2Icon className="text-white" />, href: "#projects" },
-    { title: "GitHub", icon: <GithubIcon className="text-white" />, href: "https://github.com/Epicguest97" },
-    { title: "LinkedIn", icon: <LinkedinIcon className="text-white" />, href: "https://www.linkedin.com/in/mehul-kaushik-7b3984337/" },
-    { title: "Leetcode", icon: <SiLeetcode className="text-white" />, href: "https://leetcode.com/u/mkaushik06/" },
-    { title: "Resume", icon: <FileTextIcon className="text-white" />, href: "https://mehul.sbs/resume.pdf" },
-  ];
+function MyDock({ currentPage, onNavigate }: { currentPage: 'home' | 'old-dusty'; onNavigate: (page: 'home' | 'old-dusty') => void }) {
+  const items = currentPage === 'home'
+    ? [
+        { title: "Profile", icon: <UserIcon className="text-white" />, href: "#profile" },
+        { title: "Projects", icon: <Code2Icon className="text-white" />, href: "#projects" },
+        { title: "GitHub", icon: <GithubIcon className="text-white" />, href: "https://github.com/Epicguest97" },
+        { title: "LinkedIn", icon: <LinkedinIcon className="text-white" />, href: "https://www.linkedin.com/in/mehul-kaushik-7b3984337/" },
+        { title: "Leetcode", icon: <SiLeetcode className="text-white" />, href: "https://leetcode.com/u/mkaushik06/" },
+        { title: "Resume", icon: <FileTextIcon className="text-white" />, href: "https://mehul.sbs/resume.pdf" },
+      ]
+    : [
+        { 
+          title: "Home", 
+          icon: <HomeIcon className="text-white" />, 
+          href: "#", 
+          onClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
+            e.preventDefault();
+            onNavigate('home');
+          } 
+        },
+        { title: "GitHub", icon: <GithubIcon className="text-white" />, href: "https://github.com/Epicguest97" },
+        { title: "LinkedIn", icon: <LinkedinIcon className="text-white" />, href: "https://www.linkedin.com/in/mehul-kaushik-7b3984337/" },
+        { title: "Leetcode", icon: <SiLeetcode className="text-white" />, href: "https://leetcode.com/u/mkaushik06/" },
+        { title: "Resume", icon: <FileTextIcon className="text-white" />, href: "https://mehul.sbs/resume.pdf" },
+      ];
   
   return (
     <FloatingDock 
@@ -31,6 +48,7 @@ function MyDock() {
 }
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<'home' | 'old-dusty'>('home');
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
   const [points, setPoints] = useState(0);
@@ -39,6 +57,14 @@ export default function App() {
   const [hasAwardedDarkMode, setHasAwardedDarkMode] = useState(false);
   const [hasAwardedSocials, setHasAwardedSocials] = useState(false);
   const holdTimer = useRef<NodeJS.Timeout | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const handlePageChange = (page: 'home' | 'old-dusty') => {
+    setCurrentPage(page);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  };
 
   const handlePressStart = () => {
     if (!hasAwardedPoints) {
@@ -91,9 +117,10 @@ export default function App() {
     <div className="relative min-h-screen overflow-y-auto dark-bg">
       <ParticlesBackground />
       <div className="fixed inset-0 flex flex-col items-center">
-        <MyDock />
+        <MyDock currentPage={currentPage} onNavigate={handlePageChange} />
         <div className="h-full w-full flex flex-col items-center justify-center text-white">
           <div
+            ref={scrollContainerRef}
             className="w-full md:w-[46.66%] h-full overflow-y-auto flex flex-col py-20 px-4 md:px-0 bg-transparent scrollbar-hide"
             style={{ scrollBehavior: 'smooth' }}
           >
@@ -128,57 +155,63 @@ export default function App() {
               </div>
             </div>
             
-            {/* Profile picture and intro section */}
-            <div id="profile">
-              <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
-                {/* Profile Picture Container with hover (desktop) and click (mobile) handlers */}
-                <div 
-                  className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0 cursor-pointer"
-                  onMouseEnter={handlePressStart}
-                  onMouseLeave={handlePressEnd}
-                  onTouchStart={handlePressStart}
-                  onTouchEnd={handlePressEnd}
-                >
-                  <img 
-                    src="https://i.ibb.co/F4HjztgK/me.jpg"
-                    alt="Profile" 
-                    className="w-full h-full object-cover"
-                  />
-                  {isLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                      <span className="text-xs animate-pulse">Loading...</span>
+            {currentPage === 'home' ? (
+              <>
+                {/* Profile picture and intro section */}
+                <div id="profile">
+                  <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
+                    {/* Profile Picture Container with hover (desktop) and click (mobile) handlers */}
+                    <div 
+                      className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0 cursor-pointer"
+                      onMouseEnter={handlePressStart}
+                      onMouseLeave={handlePressEnd}
+                      onTouchStart={handlePressStart}
+                      onTouchEnd={handlePressEnd}
+                    >
+                      <img 
+                        src="https://i.ibb.co/F4HjztgK/me.jpg"
+                        alt="Profile" 
+                        className="w-full h-full object-cover"
+                      />
+                      {isLoading && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                          <span className="text-xs animate-pulse">Loading...</span>
+                        </div>
+                      )}
                     </div>
-                  )}
+                    
+                    <div className="flex flex-col gap-3">
+                      <h1 className="text-2xl md:text-3xl font-bold">Hi, I am Mehul Kaushik,</h1>
+                      <p className="text-base text-white/80">
+                        Passionate about Cybersecurity,Machine Learning, and Competitive Programming.
+                      </p>
+                      <p className="text-white/80">Dankaur, India</p>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="flex flex-col gap-3">
-                  <h1 className="text-2xl md:text-3xl font-bold">Hi, I am Mehul Kaushik,</h1>
-                  <p className="text-base text-white/80">
-                    Passionate about Cybersecurity,Machine Learning, and Competitive Programming.
-                  </p>
-                  <p className="text-white/80">Dankaur, India</p>
+                {/* Experience Component */}
+                <Experience />
+                
+                {/* Projects Component */}
+                <div id="projects">
+                  <Projects onViewOldDusty={() => handlePageChange('old-dusty')} />
                 </div>
-              </div>
-            </div>
-            
-            {/* Experience Component */}
-            <Experience />
-            
-            {/* Projects Component */}
-            <div id="projects">
-              <Projects />
-            </div>
-            
-            {/* Technologies Component */}
-            <Technologies />
-            
-            {/* Last Played Song Section */}
-            <div className="mt-8 px-4">
-              <LastPlayedSong />
-            </div>
-            
-            {/* Socials Section (Pass the handler to the existing socials link button) */}
-            <Socials onSocialsClick={toggleSocials} />
+                
+                {/* Technologies Component */}
+                <Technologies />
+                
+                {/* Last Played Song Section */}
+                <div className="mt-8 px-4">
+                  <LastPlayedSong />
+                </div>
+                
+                {/* Socials Section (Pass the handler to the existing socials link button) */}
+                <Socials onSocialsClick={toggleSocials} />
+              </>
+            ) : (
+              <OldDustyProjects onBackToHome={() => handlePageChange('home')} />
+            )}
             
             {/* Bottom padding */}
             <div className="pb-10"></div>

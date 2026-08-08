@@ -1,22 +1,23 @@
 import { useState } from "react";
-import { ChevronDown, X } from "lucide-react";
-import { highlightedProjects } from "../data/projectsData";
+import { ChevronLeft, ChevronDown, X } from "lucide-react";
+import { motion } from "motion/react";
+import { oldDustyProjects } from "../data/projectsData";
 
-interface ProjectsProps {
-	onViewOldDusty: () => void;
+interface OldDustyProjectsProps {
+	onBackToHome: () => void;
 }
 
-export default function Projects({ onViewOldDusty }: ProjectsProps) {
+export default function OldDustyProjects({ onBackToHome }: OldDustyProjectsProps) {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedTech, setSelectedTech] = useState<string[]>([]);
 	const [selectedYears, setSelectedYears] = useState<string[]>([]);
 	const [showTechDropdown, setShowTechDropdown] = useState(false);
 	const [showYearDropdown, setShowYearDropdown] = useState(false);
 
-	// Extract unique technologies and years from highlighted projects
+	// Extract unique technologies and years from dusty projects
 	const allTechnologies = Array.from(
 		new Set(
-			highlightedProjects.flatMap((project) =>
+			oldDustyProjects.flatMap((project) =>
 				project.tags.filter((tag) => !tag.match(/^\d{4}$/))
 			)
 		)
@@ -24,14 +25,14 @@ export default function Projects({ onViewOldDusty }: ProjectsProps) {
 
 	const allYears = Array.from(
 		new Set(
-			highlightedProjects.flatMap((project) =>
+			oldDustyProjects.flatMap((project) =>
 				project.tags.filter((tag) => tag.match(/^\d{4}$/))
 			)
 		)
-	).sort((a, b) => b.localeCompare(a)); // Descending years
+	).sort((a, b) => b.localeCompare(a));
 
-	// Filter highlighted projects based on search term and selected filters
-	const filteredProjects = highlightedProjects.filter((project) => {
+	// Filter projects
+	const filteredProjects = oldDustyProjects.filter((project) => {
 		const matchesSearch =
 			searchTerm === "" ||
 			project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -74,33 +75,52 @@ export default function Projects({ onViewOldDusty }: ProjectsProps) {
 	const hasActiveFilters = searchTerm || selectedTech.length > 0 || selectedYears.length > 0;
 
 	return (
-		<div className="mt-12">
-			<div className="flex justify-between items-center mb-6">
-				<h2 className="text-lg font-semibold uppercase tracking-wider text-white/90">Featured Projects</h2>
-				<span className="text-xs text-white/50">{highlightedProjects.length} Highlighted</span>
-			</div>
+		<motion.div 
+			className="mt-4"
+			initial={{ opacity: 0, y: 15 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: -15 }}
+			transition={{ duration: 0.4, ease: "easeOut" }}
+		>
+			{/* Back link */}
+			<button
+				onClick={onBackToHome}
+				className="flex items-center gap-1 text-white/50 hover:text-white transition-colors mb-6 text-sm group cursor-pointer"
+			>
+				<ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+				<span>Back to Home</span>
+			</button>
 
-			{/* Search and filter section */}
+			<div className="flex justify-between items-baseline mb-2">
+				<h1 className="text-2xl font-bold tracking-tight text-white">Old Dusty Projects</h1>
+				<span className="text-xs text-white/40">{oldDustyProjects.length} total</span>
+			</div>
+			
+			<p className="text-sm text-white/60 mb-8 leading-relaxed">
+				A collection of my older experiments, student projects, and initial steps in software development. They might look simple or dusty, but they hold the memory of my early programming journey!
+			</p>
+
+			{/* Search and filters */}
 			<div className="flex items-center gap-3 mb-6">
 				{/* Search input */}
 				<div className="relative flex-1">
 					<input
 						type="text"
-						placeholder="Search projects..."
+						placeholder="Search archives..."
 						value={searchTerm}
 						onChange={(e) => setSearchTerm(e.target.value)}
 						className="w-full bg-neutral-900/50 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/30 transition-colors"
 					/>
 				</div>
 
-				{/* Technology filter */}
+				{/* Tech filter */}
 				<div className="relative">
 					<button
 						onClick={() => {
 							setShowTechDropdown(!showTechDropdown);
 							setShowYearDropdown(false);
 						}}
-						className="flex items-center gap-2 px-4 py-2.5 border border-white/10 rounded-lg text-sm text-white/80 hover:text-white hover:border-white/20 bg-neutral-900/50 transition-colors min-w-[120px] justify-between cursor-pointer"
+						className="flex items-center gap-2 px-4 py-2.5 border border-white/10 rounded-lg text-sm text-white/80 hover:text-white hover:border-white/20 bg-neutral-900/50 transition-colors min-w-[110px] justify-between cursor-pointer"
 					>
 						<span>Tech</span>
 						<ChevronDown className={`w-4 h-4 text-white/50 transition-transform ${showTechDropdown ? 'rotate-180' : ''}`} />
@@ -157,7 +177,7 @@ export default function Projects({ onViewOldDusty }: ProjectsProps) {
 					)}
 				</div>
 
-				{/* Clear all button */}
+				{/* Clear all */}
 				{hasActiveFilters && (
 					<button
 						onClick={clearAllFilters}
@@ -169,7 +189,7 @@ export default function Projects({ onViewOldDusty }: ProjectsProps) {
 				)}
 			</div>
 
-			{/* Active filters display */}
+			{/* Active filter badges */}
 			{(selectedTech.length > 0 || selectedYears.length > 0) && (
 				<div className="flex flex-wrap gap-2 mb-4">
 					{selectedTech.map((tech) => (
@@ -203,77 +223,53 @@ export default function Projects({ onViewOldDusty }: ProjectsProps) {
 				</div>
 			)}
 
-			{/* Projects Display - Two Row Grid */}
-			<div className="relative">
-				<div className="grid grid-rows-2 grid-flow-col gap-4 overflow-x-auto pb-4 scrollbar-hide h-[474px]">
-					{filteredProjects.length > 0 ? (
-						filteredProjects.map((project, idx) => (
-							<a
-								key={idx}
-								href={project.link}
-								className="bg-neutral-900/60 hover:bg-neutral-900/90 border border-white/10 rounded-xl flex flex-col min-w-[270px] max-w-[270px] h-[224px] hover:scale-[1.02] active:scale-[0.99] transition-all duration-300 shadow-lg overflow-hidden group"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								{/* Image header */}
-								<div className="relative h-24 w-full overflow-hidden flex-shrink-0">
-									<img
-										src={project.image}
-										alt={project.title}
-										className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-									/>
-									<div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent" />
+			{/* Project Grid */}
+			<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-12">
+				{filteredProjects.length > 0 ? (
+					filteredProjects.map((project, idx) => (
+						<a
+							key={idx}
+							href={project.link}
+							className="bg-neutral-900/40 hover:bg-neutral-900/80 border border-white/5 hover:border-white/10 rounded-xl flex flex-col h-[224px] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 shadow-md overflow-hidden group"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{/* Image header with grayscale dusty filter */}
+							<div className="relative h-24 w-full overflow-hidden flex-shrink-0">
+								<img
+									src={project.image}
+									alt={project.title}
+									className="w-full h-full object-cover grayscale contrast-110 brightness-75 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 transition-all duration-500"
+								/>
+								<div className="absolute inset-0 bg-gradient-to-t from-neutral-900/90 to-transparent" />
+							</div>
+							
+							{/* Content section */}
+							<div className="px-3.5 py-2.5 flex flex-col justify-between flex-grow">
+								<div>
+									<h3 className="font-bold text-sm text-white/80 group-hover:text-amber-400/90 transition-colors line-clamp-1">
+										{project.title}
+									</h3>
+									<p className="text-[11px] text-white/50 line-clamp-2 mt-0.5 leading-normal">
+										{project.description || "No description provided."}
+									</p>
 								</div>
-								
-								{/* Content section */}
-								<div className="px-3.5 py-2.5 flex flex-col justify-between flex-grow">
-									<div>
-										<h3 className="font-bold text-sm text-white group-hover:text-emerald-400 transition-colors line-clamp-1">
-											{project.title}
-										</h3>
-										<p className="text-[11px] text-white/60 line-clamp-2 mt-0.5 leading-normal">
-											{project.description || "No description provided."}
-										</p>
-									</div>
-									<div className="flex gap-1.5 flex-wrap mt-1">
-										{project.tags.map((tag, i) => (
-											<span key={i} className="px-1.5 py-0.5 bg-white/5 border border-white/5 rounded text-white/70 text-[9px] font-medium">
-												{tag}
-											</span>
-										))}
-									</div>
+								<div className="flex gap-1.5 flex-wrap mt-1">
+									{project.tags.map((tag, i) => (
+										<span key={i} className="px-1.5 py-0.5 bg-white/5 border border-white/5 rounded text-white/60 text-[9px] font-medium">
+											{tag}
+										</span>
+									))}
 								</div>
-							</a>
-						))
-					) : (
-						<div className="col-span-full w-full flex items-center justify-center h-48 text-white/40 text-sm">
-							No projects match your current filters.
-						</div>
-					)}
-				</div>
+							</div>
+						</a>
+					))
+				) : (
+					<div className="col-span-full w-full flex items-center justify-center h-48 text-white/40 text-sm">
+						No archive projects match your filters.
+					</div>
+				)}
 			</div>
-
-			{/* Folder transition trigger link for Dusty projects */}
-			<div className="mt-6 flex justify-center">
-				<button
-					onClick={onViewOldDusty}
-					className="inline-flex items-center gap-2 px-5 py-3 bg-neutral-900/50 hover:bg-neutral-900/80 border border-white/10 hover:border-white/20 rounded-xl text-xs font-semibold text-white/70 hover:text-white transition-all cursor-pointer shadow-md group"
-				>
-					<span className="text-base group-hover:animate-bounce">📁</span>
-					<span>View Old Dusty Projects (30+ older student projects)</span>
-				</button>
-			</div>
-
-			{/* Click outside to close dropdowns */}
-			{(showTechDropdown || showYearDropdown) && (
-				<div
-					className="fixed inset-0 z-10"
-					onClick={() => {
-						setShowTechDropdown(false);
-						setShowYearDropdown(false);
-					}}
-				/>
-			)}
-		</div>
+		</motion.div>
 	);
 }
