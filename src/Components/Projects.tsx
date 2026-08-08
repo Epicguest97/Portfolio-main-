@@ -3,10 +3,10 @@ import { ChevronDown, X } from "lucide-react";
 import { highlightedProjects } from "../data/projectsData";
 
 interface ProjectsProps {
-	onViewOldDusty: () => void;
+	onViewAllProjects: () => void;
 }
 
-export default function Projects({ onViewOldDusty }: ProjectsProps) {
+export default function Projects({ onViewAllProjects }: ProjectsProps) {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedTech, setSelectedTech] = useState<string[]>([]);
 	const [selectedYears, setSelectedYears] = useState<string[]>([]);
@@ -253,14 +253,14 @@ export default function Projects({ onViewOldDusty }: ProjectsProps) {
 				</div>
 			</div>
 
-			{/* Folder transition trigger link for Dusty projects */}
+			{/* Folder transition trigger link for All projects */}
 			<div className="mt-6 flex justify-center">
 				<button
-					onClick={onViewOldDusty}
-					className="inline-flex items-center gap-2 px-5 py-3 bg-neutral-900/50 hover:bg-neutral-900/80 border border-white/10 hover:border-white/20 rounded-xl text-xs font-semibold text-white/70 hover:text-white transition-all cursor-pointer shadow-md group"
+					onClick={onViewAllProjects}
+					className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900/50 hover:bg-neutral-900/80 border border-white/10 hover:border-white/20 rounded-xl text-xs font-semibold text-white/70 hover:text-white transition-all cursor-pointer shadow-md group"
 				>
 					<span className="text-base group-hover:animate-bounce">📁</span>
-					<span>View Old Dusty Projects (30+ older student projects)</span>
+					<span>View All Projects</span>
 				</button>
 			</div>
 

@@ -9,10 +9,10 @@ import Socials from "./Components/Socials";
 import { FloatingDock } from "./Components/ui/floating-dock";
 import { UserIcon, Code2Icon, GithubIcon, LinkedinIcon, FileTextIcon, SunIcon, CoffeeIcon, HomeIcon } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
-import OldDustyProjects from "./Components/OldDustyProjects";
+import AllProjects from "./Components/AllProjects";
 
 
-function MyDock({ currentPage, onNavigate }: { currentPage: 'home' | 'old-dusty'; onNavigate: (page: 'home' | 'old-dusty') => void }) {
+function MyDock({ currentPage, onNavigate }: { currentPage: 'home' | 'all-projects'; onNavigate: (page: 'home' | 'all-projects') => void }) {
   const items = currentPage === 'home'
     ? [
         { title: "Profile", icon: <UserIcon className="text-white" />, href: "#profile" },
@@ -48,7 +48,7 @@ function MyDock({ currentPage, onNavigate }: { currentPage: 'home' | 'old-dusty'
 }
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'old-dusty'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'all-projects'>('home');
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
   const [points, setPoints] = useState(0);
@@ -59,7 +59,7 @@ export default function App() {
   const holdTimer = useRef<NodeJS.Timeout | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const handlePageChange = (page: 'home' | 'old-dusty') => {
+  const handlePageChange = (page: 'home' | 'all-projects') => {
     setCurrentPage(page);
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTop = 0;
@@ -195,7 +195,7 @@ export default function App() {
                 
                 {/* Projects Component */}
                 <div id="projects">
-                  <Projects onViewOldDusty={() => handlePageChange('old-dusty')} />
+                  <Projects onViewAllProjects={() => handlePageChange('all-projects')} />
                 </div>
                 
                 {/* Technologies Component */}
@@ -210,7 +210,7 @@ export default function App() {
                 <Socials onSocialsClick={toggleSocials} />
               </>
             ) : (
-              <OldDustyProjects onBackToHome={() => handlePageChange('home')} />
+              <AllProjects onBackToHome={() => handlePageChange('home')} />
             )}
             
             {/* Bottom padding */}
