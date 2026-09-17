@@ -144,7 +144,7 @@ export default function App() {
                   <SunIcon className="h-5 w-5 text-yellow-300" />
                 </button>
                 <a
-                  href="https://buymeacoffee.com/mehulkaushik"
+                  href="https://blog.mehul.sbs/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-neutral-900/80 hover:bg-neutral-800/80 transition-colors"
